@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "investing-pal"
+dynamic = ["version"]
+description = "Family of tools for testing and tracking investing strategies"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "Kuba Sejdak", email = "kuba.sejdak@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "rich"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort[colors]",
+    "mypy",
+    "pylint",
+    "pytest",
+    "pytest-cov"
+]
+
+[project.urls]
+Homepage = "https://github.com/kubasejdak/investing-pal"
+Documentation = "https://github.com/kubasejdak/investing-pal/wiki"
+Issues = "https://github.com/kubasejdak/investing-pal/issues"
+Source = "https://github.com/kubasejdak/investing-pal"
+
+[project.scripts]
+bond-calculator = "investing_pal.app.bond_calculator.main:main"
+
+[tool.hatch.version]
+path = "investing_pal/__about__.py"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+src_paths = ["investing_pal"]
+profile = "black"
+
+[tool.mypy]
+disallow_untyped_defs = true
+enable_error_code = ["redundant-expr"]
+pretty = true
+show_error_codes = true
+strict = true
+strict_equality = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_unreachable = true
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.messages_control]
+disable = [
+    "logging-fstring-interpolation",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring"
+]
+
+[tool.pytest.ini_options]
+addopts = "--color=yes"
+pythonpath = "investing_pal"
