@@ -42,7 +42,7 @@ Issues = "https://github.com/kubasejdak/investing-pal/issues"
 Source = "https://github.com/kubasejdak/investing-pal"
 
 [project.scripts]
-bond-calculator = "investing_pal.app.bond_calculator.main:main"
+bond-calculator = "investing_pal.app.bond_calculator.main:run"
 
 [tool.hatch.version]
 path = "investing_pal/__about__.py"
