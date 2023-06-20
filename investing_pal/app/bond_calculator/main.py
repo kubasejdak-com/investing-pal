@@ -9,6 +9,7 @@ from rich.highlighter import NullHighlighter
 from rich.logging import RichHandler
 
 from investing_pal.finances.currency import PLN
+from investing_pal.finances.interest import FixedInterest
 from investing_pal.securities.bond import Bond
 
 log = logging.getLogger(__name__)
@@ -44,7 +45,7 @@ def run() -> None:
 
     log.info(f"Starting bond-calculator v0.0.1")
 
-    bond = Bond(nominal_value=100, currency=PLN, coupon=1.0, maturity=datetime.date.today())
+    bond = Bond(currency=PLN, face_value=100, price=15.0, coupon_rate=FixedInterest(1.0), maturity_date=datetime.date.today())
     print(bond)
 
 if __name__ == "__main__":
