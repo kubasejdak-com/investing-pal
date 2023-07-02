@@ -45,7 +45,7 @@ Source = "https://github.com/kubasejdak/investing-pal"
 bond-calculator = "investing_pal.app.bond_calculator.main:run"
 
 [tool.hatch.version]
-path = "investing_pal/__about__.py"
+path = "investing_pal/__init__.py"
 
 [tool.black]
 line-length = 120
