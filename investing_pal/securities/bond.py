@@ -13,4 +13,3 @@ class Bond:
     maturity_date: datetime.date
     price: float
     value: float = 0.0
-

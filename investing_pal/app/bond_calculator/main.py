@@ -45,8 +45,11 @@ def run() -> None:
 
     log.info(f"Starting bond-calculator v0.0.1")
 
-    bond = Bond(currency=PLN, face_value=100, price=15.0, coupon_rate=FixedInterest(1.0), maturity_date=datetime.date.today())
+    bond = Bond(
+        currency=PLN, face_value=100, price=15.0, coupon_rate=FixedInterest(1.0), maturity_date=datetime.date.today()
+    )
     print(bond)
+
 
 if __name__ == "__main__":
     run()
