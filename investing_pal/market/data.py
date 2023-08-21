@@ -11,7 +11,7 @@ class MarketValue:
 
 
 @dataclass
-class NumericalValue(MarketValue):
+class Number(MarketValue):
     value: float
 
     def __str__(self) -> str:
@@ -19,7 +19,7 @@ class NumericalValue(MarketValue):
 
 
 @dataclass
-class TextValue(MarketValue):
+class Text(MarketValue):
     value: str
 
     def __str__(self) -> str:
@@ -27,7 +27,7 @@ class TextValue(MarketValue):
 
 
 @dataclass
-class PriceValue(NumericalValue):
+class Price(Number):
     currency: Currency
 
     def __str__(self) -> str:
@@ -35,24 +35,24 @@ class PriceValue(NumericalValue):
 
 
 @dataclass
-class PercentageValue(NumericalValue):
+class Percentage(Number):
     def __str__(self) -> str:
         return f"{self.date}: {self.value}%"
 
 
 class IDataSource(ABC):
     @abstractmethod
-    def numerical_value(id: str) -> NumericalValue:
+    def numerical_value(id: str) -> Number:
         pass
 
     @abstractmethod
-    def text_value(id: str) -> TextValue:
+    def text_value(id: str) -> Text:
         pass
 
     @abstractmethod
-    def price_value(id: str) -> PriceValue:
+    def price_value(id: str) -> Price:
         pass
 
     @abstractmethod
-    def percentage_value(id: str) -> PercentageValue:
+    def percentage_value(id: str) -> Percentage:
         pass
