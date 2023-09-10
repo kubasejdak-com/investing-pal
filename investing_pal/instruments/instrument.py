@@ -1,7 +1,7 @@
 import datetime
 from abc import ABC, abstractmethod
 
-from money.cash import Cash
+from investing_pal.instruments.money.cash import Cash
 
 
 class IFinancialInstrument(ABC):

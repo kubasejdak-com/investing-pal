@@ -2,9 +2,9 @@ import datetime
 from dataclasses import dataclass
 from enum import Enum, auto
 
-from instrument import IFinancialInstrument
-from money.cash import Cash
-from money.currency import Currency
+from investing_pal.instruments.instrument import IFinancialInstrument
+from investing_pal.instruments.money.cash import Cash
+from investing_pal.instruments.money.currency import Currency
 
 
 @dataclass

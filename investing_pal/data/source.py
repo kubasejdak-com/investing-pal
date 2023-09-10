@@ -1,7 +1,7 @@
 import datetime
 from abc import ABC, abstractmethod
 
-from data.value import DataId, Number, Price, Text
+from investing_pal.data.value import DataId, Number, Price, Text
 
 
 class IDataSource(ABC):
