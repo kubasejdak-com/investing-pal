@@ -9,17 +9,11 @@ class EtfInfo(StockInfo):
     replication: str  # physical_sampling, physical, syntetic
     issuer: str  # Vangiard/BlackRock
     registration_country: str  # Ireland/...
-    hedge: str  # EUR, USD, PLN, None
-
-
-class BondInfo(StockInfo):
-    face_value: str  # 100 (curreny)
-    term: str  # 10y, 2 year
-    rate_type: str  # fixed, variable
+    hedge: Optional[str]  # EUR, USD, PLN, None
 
 
 @dataclass
-class BuyTransaction:
+class Transaction:
     type: str  # buy/sell
     date: datetime.date
     time: Optional[datetime.time]

@@ -24,7 +24,7 @@ class BondInfo:
     exchange: str
     face_value: str  # 100 (curreny)
     term: str  # 10y, 2 year
-    rate_type: str  # fixed, variable
+    rate_type: RateType
 
 
 class Bond(IFinancialInstrument):
