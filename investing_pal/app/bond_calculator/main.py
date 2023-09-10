@@ -43,7 +43,7 @@ def run() -> None:
 
     log.info(f"Starting bond-calculator v0.0.1")
 
-    bond = Bond()
+    bond = Bond("security.bond.test.wse.stooq")
     print(bond)
 
 

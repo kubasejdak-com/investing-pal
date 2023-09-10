@@ -1,6 +1,7 @@
 import datetime
 from dataclasses import dataclass
-from enum import Enum, auto
+
+from strenum import StrEnum
 
 from instruments.instrument import IFinancialInstrument
 from instruments.money.cash import Cash
@@ -12,9 +13,9 @@ class BondId:
     id: str
 
 
-class RateType(Enum):
-    FIXED = auto()
-    VARIABLE = auto()
+class RateType(StrEnum):
+    FIXED = "fixed"
+    VARIABLE = "variable"
 
 
 @dataclass
@@ -22,8 +23,9 @@ class BondInfo:
     id: BondId
     name: str
     exchange: str
-    face_value: str  # 100 (curreny)
-    term: str  # 10y, 2 year
+    currency: Currency
+    face_value: Cash
+    term: datetime.timedelta
     rate_type: RateType
 
 

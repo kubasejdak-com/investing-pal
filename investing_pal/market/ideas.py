@@ -1,15 +1,6 @@
 import datetime
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional
-
-
-class EtfInfo(StockInfo):
-    divident_policy: str  # accumulating/distributing
-    replication: str  # physical_sampling, physical, syntetic
-    issuer: str  # Vangiard/BlackRock
-    registration_country: str  # Ireland/...
-    hedge: Optional[str]  # EUR, USD, PLN, None
 
 
 @dataclass
