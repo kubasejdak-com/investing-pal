@@ -22,7 +22,8 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "rich"
+    "rich",
+    "strenum"
 ]
 
 [project.optional-dependencies]
