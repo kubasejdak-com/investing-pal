@@ -29,4 +29,4 @@ class Etc(IFinancialInstrument):
         pass
 
     def value(self, date: datetime.date, time: datetime.time | None = None) -> Cash:
-        pass
+        return self.price(date, time)
