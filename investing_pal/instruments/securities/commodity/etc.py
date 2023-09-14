@@ -1,7 +1,7 @@
 import datetime
 from dataclasses import dataclass
 
-from instruments.instrument import IFinancialInstrument
+from instruments.common import IFinancialInstrument
 from money.cash import Cash
 from money.currency import Currency
 

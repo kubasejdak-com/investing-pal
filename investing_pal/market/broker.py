@@ -4,10 +4,9 @@ from dataclasses import dataclass
 from enum import Enum, auto
 from typing import Optional
 
-from institutions.account import Account
-from instruments.money.cash import Cash
-from investing_pal.instruments.money.cash import Cash
-from investing_pal.instruments.money.currency import Currency
+from market.account import Account
+from money.cash import Cash
+from money.currency import Currency
 
 
 class TransactionType(Enum):
