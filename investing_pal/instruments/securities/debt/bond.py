@@ -4,8 +4,8 @@ from dataclasses import dataclass
 from strenum import StrEnum
 
 from instruments.instrument import IFinancialInstrument
-from instruments.money.cash import Cash
-from instruments.money.currency import Currency
+from money.cash import Cash
+from money.currency import Currency
 
 
 @dataclass
