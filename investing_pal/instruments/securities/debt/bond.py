@@ -5,7 +5,7 @@ from strenum import StrEnum
 
 from instruments.common import IFinancialInstrument
 from money.cash import Cash
-from money.currency import Currency
+from money.currency import PLN, Currency
 
 
 @dataclass
@@ -35,7 +35,9 @@ class Bond(IFinancialInstrument):
         self._id: BondId = id
 
     def price(self, date: datetime.date, time: datetime.time | None = None) -> Cash:
-        pass
+        # TODO: implement.
+        return Cash(PLN)
 
     def value(self, date: datetime.date, time: datetime.time | None = None) -> Cash:
-        pass
+        # TODO: implement.
+        return Cash(PLN)

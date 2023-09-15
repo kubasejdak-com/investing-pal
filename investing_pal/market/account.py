@@ -1,15 +1,22 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 from money.cash import Cash
 from money.currency import PLN, Currency
 
 
+@dataclass
+class AccountInfo:
+    type: str
+    currency: Currency = PLN
+    currency_conversion: bool = False
+
+
 class Account(ABC):
-    def __init__(self, name: str, currency: Currency = PLN, currency_conversion: bool = False) -> None:
+    def __init__(self, name: str, info: AccountInfo) -> None:
         self._name: str = name
-        self._currency = currency
-        self._currency_conversion = currency_conversion
-        self._cash: Cash = Cash(currency, 0.0)
+        self._info: AccountInfo = info
+        self._cash: Cash = Cash(info.currency)
 
     def name(self) -> str:
         return self._name
@@ -20,7 +27,7 @@ class Account(ABC):
 
     def withdraw_cash(self, count: float) -> Cash:
         # TODO: implement.
-        pass
+        return Cash(PLN)
 
     def cash_balance(self) -> Cash:
         return self._cash

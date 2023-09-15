@@ -7,7 +7,7 @@ import rich.traceback
 from rich.highlighter import NullHighlighter
 from rich.logging import RichHandler
 
-from instruments.securities.debt.bond import Bond
+from instruments.securities.debt.bond import Bond, BondId
 
 log = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ def run() -> None:
 
     log.info(f"Starting bond-calculator v0.0.1")
 
-    bond = Bond("security.bond.test.wse.stooq")
+    bond = Bond(BondId("security.bond.test.wse.stooq"))
     print(bond)
 
 
