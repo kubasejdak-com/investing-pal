@@ -7,7 +7,6 @@ import rich.traceback
 from rich.highlighter import NullHighlighter
 from rich.logging import RichHandler
 
-from money.currency import PLN
 from instruments.securities.debt.bond import Bond
 
 log = logging.getLogger(__name__)
