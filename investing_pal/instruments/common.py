@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 
 from money.cash import Cash
 
+InstrumentId = str
+
 
 class IFinancialInstrument(ABC):
     @abstractmethod

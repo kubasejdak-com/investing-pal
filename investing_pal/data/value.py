@@ -9,7 +9,7 @@ DataId = str
 
 @dataclass
 class MarketData:
-    id: DataId
+    data_id: DataId
     date: Optional[datetime.date]
     time: Optional[datetime.time]
 

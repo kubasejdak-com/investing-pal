@@ -59,6 +59,8 @@ profile = "black"
 [tool.mypy]
 disallow_untyped_defs = true
 enable_error_code = ["redundant-expr"]
+explicit_package_bases = true
+mypy_path= "investing_pal"
 pretty = true
 show_error_codes = true
 strict = true
@@ -69,6 +71,9 @@ warn_unreachable = true
 
 [tool.pylint.format]
 max-line-length = 120
+
+[tool.pylint.master]
+init-hook="import sys; sys.path.append('investing_pal')"
 
 [tool.pylint.messages_control]
 disable = [
