@@ -2,6 +2,8 @@ import datetime
 from dataclasses import dataclass
 from typing import Optional
 
+from money.currency import Currency
+
 DataId = str
 
 
@@ -24,4 +26,4 @@ class Text(MarketData):
 
 @dataclass
 class Price(Number):
-    currency: str
+    currency: Currency
