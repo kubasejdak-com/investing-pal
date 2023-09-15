@@ -6,6 +6,13 @@ from money.currency import Currency
 
 DataId = str
 
+# instrument.[stock|etf|etc].<ticker>.<source>
+# instrument.[bond].<symbol>.<source>
+# source.<source>
+# economy.inflation.<
+
+# economy.inflation.poland.yoy.nbp
+
 
 @dataclass
 class MarketData:
