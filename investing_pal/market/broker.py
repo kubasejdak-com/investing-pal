@@ -13,7 +13,7 @@ class Position:
         self._transactions: list[Transaction] = []
 
 
-class BrokerAccount(Account, ABC):
+class BrokerAccount(Account):
     def __init__(self, name: str, info: AccountInfo) -> None:
         super().__init__(name, info)
         self._positions: list[Position] = []
