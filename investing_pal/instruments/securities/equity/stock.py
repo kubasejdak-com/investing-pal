@@ -7,15 +7,16 @@ from money.cash import Cash
 from money.currency import PLN, Currency
 
 
+@dataclass
 class StockId(DataId):
-    def __init__(self, ticker: str, exchange: str) -> None:
-        super().__init__(DataType.INSTRUMENT_STOCK)
-        self.ticker: str = ticker
-        self.exchange: str = exchange
+    ticker: str
+    exchange: str
 
-    def __str__(self) -> str:
-        data_id = super().__str__()
-        return f"{data_id}.{self.ticker}:{self.exchange}"
+    def _inner_type(self) -> DataType:
+        return DataType.INSTRUMENT_STOCK
+
+    def _inner_uid(self) -> str:
+        return f"{self.ticker.replace('.', ':')}.{self.exchange}"
 
 
 @dataclass

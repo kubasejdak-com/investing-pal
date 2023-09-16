@@ -3,7 +3,7 @@
 ############################################################################################
 
 ############################################################################################
-# STOCKS
+# STOCK
 ############################################################################################
 
 ### id ###
@@ -19,9 +19,21 @@
 
 
 ############################################################################################
+# ETF
 ############################################################################################
 
-from abc import ABC
+### id ###
+# etf id   : instrument.etf.<ticker>.<exchange>
+
+### etf info ###
+# isin     : instrument.etf.<ticker>.<exchange>.isin
+# name     : instrument.etf.<ticker>.<exchange>.name
+# currency : instrument.etf.<ticker>.<exchange>.currency
+
+### etf market data (dependant on date) ###
+# price    : instrument.etf.<ticker>.<exchange>.price.<date>
+
+from abc import ABC, abstractmethod
 
 from strenum import StrEnum
 
@@ -34,18 +46,34 @@ class DataType(StrEnum):
 
 
 class DataId(ABC):
-    def __init__(self, type: DataType) -> None:
-        self.type: DataType = type
+    def uid(self) -> str:
+        return f"{self._inner_type()}.{self._inner_uid()}"
 
     def __str__(self) -> str:
-        return f"{self.type}"
+        return self.uid()
+
+    @abstractmethod
+    def _inner_type(self) -> DataType:
+        pass
+
+    @abstractmethod
+    def _inner_uid(self) -> str:
+        pass
 
 
 ############# BRAINSTORMING
 
-# instrument.[stock|etf|etc].<ticker>.<source>
-# instrument.[bond].<symbol>.price.<source>
-# source.<source>
-# economy.inflation.<country>.<period>
-
-# economy.inflation.poland.yoy.nbp
+# instrument.stock.aapl:us.nyse
+# instrument.stock.aapl:us.nyse.isin@atlasetf
+# instrument.stock.aapl:us.nyse.name@atlasetf
+# instrument.stock.aapl:us.nyse.currency@atlasetf
+# instrument.stock.aapl:us.nyse.price.2022-07-15@stooq
+# instrument.stock.aapl:us.nyse.price.2005-03-04@yahoo
+# economy.inflation.poland.yoy.2023.09.16@nbp
+# economy.inflation.poland.mom.2020.02.07@nbp
+# economy.unemployment.usa.yoy
+# economy.unemployment.usa.yoy.1999.01.01@bloomberg
+# instrument.etf.euna:de.xetra
+# instrument.etf.euna:de.xetra.issuer
+# instrument.etf.euna:de.xetra.issuer@atlasetf
+# instrument.etf.euna:de.xetra.price.2000.08.08@google
