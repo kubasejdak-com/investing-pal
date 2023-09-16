@@ -8,6 +8,7 @@ from rich.highlighter import NullHighlighter
 from rich.logging import RichHandler
 
 from instruments.securities.debt.bond import Bond, BondId
+from instruments.securities.equity.stock import StockId
 
 log = logging.getLogger(__name__)
 
@@ -44,6 +45,9 @@ def run() -> None:
 
     bond = Bond(BondId("security.bond.test.wse.stooq"))
     print(bond)
+
+    stock_id = StockId("AAPL.US", "NYSE")
+    print(stock_id)
 
 
 if __name__ == "__main__":

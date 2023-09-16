@@ -1,22 +1,28 @@
 import datetime
 from dataclasses import dataclass
 
+from data.ids import DataId, DataType
 from instruments.common import IFinancialInstrument
 from money.cash import Cash
 from money.currency import PLN, Currency
 
 
-@dataclass
-class StockId:
-    isin: str
-    ticker: str
+class StockId(DataId):
+    def __init__(self, ticker: str, exchange: str) -> None:
+        super().__init__(DataType.INSTRUMENT_STOCK)
+        self.ticker: str = ticker
+        self.exchange: str = exchange
+
+    def __str__(self) -> str:
+        data_id = super().__str__()
+        return f"{data_id}.{self.ticker}:{self.exchange}"
 
 
 @dataclass
 class StockInfo:
     id: StockId
     name: str
-    exchange: str
+    isin: str
     currency: Currency
 
 
