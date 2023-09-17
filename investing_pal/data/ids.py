@@ -63,7 +63,7 @@ class DataId(ABC):
 
 ############# BRAINSTORMING
 
-# instrument.stock.aapl:us.nyse
+# instrument.stock.aapl:us.nyse@atlasetf
 # instrument.stock.aapl:us.nyse.isin@atlasetf
 # instrument.stock.aapl:us.nyse.name@atlasetf
 # instrument.stock.aapl:us.nyse.currency@atlasetf
@@ -71,9 +71,8 @@ class DataId(ABC):
 # instrument.stock.aapl:us.nyse.price.2005-03-04@yahoo
 # economy.inflation.poland.yoy.2023.09.16@nbp
 # economy.inflation.poland.mom.2020.02.07@nbp
-# economy.unemployment.usa.yoy
+# economy.unemployment.usa.yoy@bloomberg
 # economy.unemployment.usa.yoy.1999.01.01@bloomberg
-# instrument.etf.euna:de.xetra
-# instrument.etf.euna:de.xetra.issuer
+# instrument.etf.euna:de.xetra@google
 # instrument.etf.euna:de.xetra.issuer@atlasetf
 # instrument.etf.euna:de.xetra.price.2000.08.08@google
