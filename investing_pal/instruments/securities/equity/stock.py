@@ -1,22 +1,30 @@
 import datetime
 from dataclasses import dataclass
 
+from data.value import DataId
 from instruments.common import IFinancialInstrument
 from money.cash import Cash
 from money.currency import PLN, Currency
 
 
 @dataclass
-class StockId:
-    isin: str
+class StockId(DataId):
     ticker: str
+    exchange_id: str
+
+    @staticmethod
+    def uid_format() -> str:
+        return "instrument.stock.{ticker}.{exchange_id}"
+
+    def uid(self) -> str:
+        return self.uid_format().format(ticker=self.ticker.replace(".", ":::"), exchange_id=self.exchange_id)
 
 
 @dataclass
 class StockInfo:
     id: StockId
     name: str
-    exchange: str
+    isin: str
     currency: Currency
 
 
