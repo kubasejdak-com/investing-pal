@@ -7,6 +7,7 @@ import rich.traceback
 from rich.highlighter import NullHighlighter
 from rich.logging import RichHandler
 
+from data.capabilities import stock_name
 from instruments.securities.debt.bond import Bond, BondId
 from instruments.securities.equity.stock import StockId
 
@@ -48,6 +49,8 @@ def run() -> None:
 
     stock_id = StockId("AAPL.US", "NYSE")
     print(stock_id)
+
+    print(stock_name)
 
 
 if __name__ == "__main__":

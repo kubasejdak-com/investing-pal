@@ -1,7 +1,7 @@
 import datetime
 from dataclasses import dataclass
 
-from data.ids import DataId, DataType
+from data.value import DataId
 from instruments.common import IFinancialInstrument
 from money.cash import Cash
 from money.currency import PLN, Currency
@@ -10,13 +10,14 @@ from money.currency import PLN, Currency
 @dataclass
 class StockId(DataId):
     ticker: str
-    exchange: str
+    exchange_id: str
 
-    def _inner_type(self) -> DataType:
-        return DataType.INSTRUMENT_STOCK
+    @staticmethod
+    def uid_format() -> str:
+        return "instrument.stock.{ticker}.{exchange_id}"
 
-    def _inner_uid(self) -> str:
-        return f"{self.ticker.replace('.', ':')}.{self.exchange}"
+    def uid(self) -> str:
+        return self.uid_format().format(ticker=self.ticker.replace(".", ":::"), exchange_id=self.exchange_id)
 
 
 @dataclass
